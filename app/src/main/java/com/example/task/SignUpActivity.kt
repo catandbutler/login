@@ -1,5 +1,8 @@
 package com.example.task
 
+
+import android.app.Activity
+
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -53,9 +56,10 @@ class SignUpActivity : AppCompatActivity() {
             Toastm(this,"입력되지 않은 정보가 있습니다")
         } else {
             val intent = Intent(this,SignInActivity::class.java)
-            startActivity(intent)
+            intent.putExtra("id",TID)
+            intent.putExtra("pw",TPW)
+            setResult(Activity.RESULT_OK,intent)
             finish()
-
         }
 
     }
